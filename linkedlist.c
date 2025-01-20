@@ -29,7 +29,18 @@ void inserirFim(node **head, int valor){
   }
   temp->next=novo;
 }
-
+//funcao para verificar se um numero esta na lista
+void verificarNum(node *head, int num){
+  node *temp = head;
+  while(temp != NULL){
+    if(temp->valor == num){
+      printf("Numero %d encontrado!", num);
+      return;
+    }
+    temp = temp->next;
+  }
+      printf("Numero %d nao foi encontrado!\n", num);
+}
 
 void imprimir(node *head){
   node *temp = head;
@@ -59,5 +70,9 @@ int main(){
   inserirFim(&head, num);
 
   imprimir(head);
+
+  printf("Numero para verificar se existe: \n");
+  scanf("%d", &num);
+  verificarNum(head,num);
   return 0;
 }
